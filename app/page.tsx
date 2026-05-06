@@ -32,12 +32,11 @@ export default function Home() {
       const scores = [82, 86, 89, 93, 96, 98];
 
       const types = [
-        "Cold Beauty",
-        "Luxury Muse",
-        "Main Character Energy",
-        "Soft Glam Aura",
-        "Editorial Face",
+        "Cold Luxury",
+        "Soft Glam",
         "Dark Feminine",
+        "Main Character",
+        "Editorial Face",
         "Rich Girl Energy",
       ];
 
@@ -216,102 +215,27 @@ export default function Home() {
 
               </div>
 
-              
-                <button
-  onClick={() => {
-    if (navigator.share) {
-      navigator.share({
-        title: "LUXIFY AI",
-        text: "Check out my aura result ✨",
-        url: window.location.href,
-      });
-    } else {
-      alert("Sharing not supported");
-    }
-  
-  }}
-  className="w-full mt-8 bg-white text-black py-3 rounded-2xl font-semibold hover:scale-105 transition"
->
-  Share Result
-</button>
+              <button
+                onClick={() => {
+                  if (navigator.share) {
+                    navigator.share({
+                      title: "LUXIFY AI",
+                      text: "Check out my aura result ✨",
+                      url: window.location.href,
+                    });
+                  }
+                }}
                 className="w-full mt-8 bg-white text-black py-3 rounded-2xl font-semibold hover:scale-105 transition"
-              
-                Download Result
-              
+              >
+                Share Result
+              </button>
 
-              <div className="mt-10">
-                <h3 className="text-xl font-semibold mb-4">
-                  Recommended For Your Aura
-                </h3>
-
-                <p className="text-gray-400 text-sm mb-4">
-                  Recommended beauty picks for your vibe
-                </p>
-
-                <div className="space-y-4">
-
-                  <div className="bg-zinc-800 rounded-2xl p-4 flex items-center justify-between">
-                    <div>
-                      <p className="font-medium">
-                        Silver Minimal Necklace
-                      </p>
-
-                      <p className="text-sm text-gray-400">
-                        Cold luxury aesthetic
-                      </p>
-                    </div>
-
-                    <a
-                      href="https://www.yesstyle.com"
-                      target="_blank"
-                      className="bg-white text-black px-4 py-2 rounded-xl text-sm font-medium hover:scale-105 transition"
-                    >
-                      Shop
-                    </a>
-                  </div>
-
-                  <div className="bg-zinc-800 rounded-2xl p-4 flex items-center justify-between">
-                    <div>
-                      <p className="font-medium">
-                        Clean Girl Lip Tint
-                      </p>
-
-                      <p className="text-sm text-gray-400">
-                        Soft glam makeup
-                      </p>
-                    </div>
-
-                    <a
-                      href="https://linkgo.one/s/jq1Mf"
-                      target="_blank"
-                      className="bg-white text-black px-4 py-2 rounded-xl text-sm font-medium hover:scale-105 transition"
-                    >
-                      Shop
-                    </a>
-                  </div>
-
-                  <div className="bg-zinc-800 rounded-2xl p-4 flex items-center justify-between">
-                    <div>
-                      <p className="font-medium">
-                        White Musk Perfume
-                      </p>
-
-                      <p className="text-sm text-gray-400">
-                        Mysterious feminine vibe
-                      </p>
-                    </div>
-
-                    <a
-                      href="https://www.amazon.com"
-                      target="_blank"
-                      className="bg-white text-black px-4 py-2 rounded-xl text-sm font-medium hover:scale-105 transition"
-                    >
-                      Shop
-                    </a>
-                  </div>
-
-                </div>
-              </div>
+              <a
+                href="/shop"
+                className="block w-full mt-4 bg-zinc-800 text-white py-3 rounded-2xl font-semibold text-center hover:scale-105 transition"
+              >
+                View Your Aesthetic
+              </a>
 
             </div>
           )}
