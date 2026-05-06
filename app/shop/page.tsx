@@ -2,100 +2,141 @@ export default function ShopPage() {
   return (
     <main className="min-h-screen bg-black text-white px-6 py-16">
 
-      <div className="max-w-3xl mx-auto">
+      <div className="max-w-4xl mx-auto">
 
-        <h1 className="text-5xl font-bold mb-4">
+        {/* Back Button */}
+
+        <a
+          href="/"
+          className="inline-block mb-10 text-gray-400 hover:text-white transition"
+        >
+          ← Back to Analysis
+        </a>
+
+        {/* Title */}
+
+        <h1 className="text-5xl font-bold tracking-tight mb-4">
           Your Aesthetic Shop
         </h1>
 
-        <p className="text-gray-400 mb-12 text-lg">
-          Beauty & fashion picks curated for your aura.
+        <p className="text-gray-400 text-lg mb-14">
+          Curated fashion picks for your aura.
         </p>
+
+        {/* Products */}
 
         <div className="space-y-6">
 
-          <div className="bg-zinc-900 border border-zinc-800 rounded-3xl p-6 flex items-center justify-between">
+          {/* CHARLES & KEITH */}
+
+          <div className="bg-zinc-900 border border-zinc-800 rounded-3xl p-7 flex items-center justify-between hover:border-zinc-600 transition">
 
             <div>
+              <p className="text-sm text-gray-500 mb-2">
+                CHARLES & KEITH
+              </p>
+
               <h2 className="text-2xl font-semibold">
-                Silver Minimal Necklace
+                Luxury Feminine Vibe
               </h2>
 
-              <p className="text-gray-400 mt-2">
-                Cold luxury aesthetic
+              <p className="text-gray-400 mt-3">
+                Elegant bags & accessories for rich girl energy.
               </p>
             </div>
 
             <a
-              href="https://linkgo.one/s/4zhvT"
+              href="你的 CHARLES & KEITH 聯盟網址"
               target="_blank"
-              className="bg-white text-black px-5 py-3 rounded-2xl font-medium hover:scale-105 transition"
+              rel="noopener noreferrer"
+              className="bg-white text-black px-6 py-3 rounded-2xl font-medium hover:scale-105 transition"
             >
               Shop
             </a>
 
           </div>
 
-          <div className="bg-zinc-900 border border-zinc-800 rounded-3xl p-6 flex items-center justify-between">
+          {/* Calvin Klein */}
+
+          <div className="bg-zinc-900 border border-zinc-800 rounded-3xl p-7 flex items-center justify-between hover:border-zinc-600 transition">
 
             <div>
+              <p className="text-sm text-gray-500 mb-2">
+                Calvin Klein
+              </p>
+
               <h2 className="text-2xl font-semibold">
-                White Musk Perfume
+                Clean Rich Girl Essentials
               </h2>
 
-              <p className="text-gray-400 mt-2">
-                Mysterious feminine vibe
+              <p className="text-gray-400 mt-3">
+                Minimal fashion with expensive energy.
               </p>
             </div>
 
             <a
-              href="https://linkgo.one/s/iO5h1"
+              href="你的 Calvin Klein 聯盟網址"
               target="_blank"
-              className="bg-white text-black px-5 py-3 rounded-2xl font-medium hover:scale-105 transition"
+              rel="noopener noreferrer"
+              className="bg-white text-black px-6 py-3 rounded-2xl font-medium hover:scale-105 transition"
             >
               Shop
             </a>
 
           </div>
 
-          <div className="bg-zinc-900 border border-zinc-800 rounded-3xl p-6 flex items-center justify-between">
+          {/* Nike */}
+
+          <div className="bg-zinc-900 border border-zinc-800 rounded-3xl p-7 flex items-center justify-between hover:border-zinc-600 transition">
 
             <div>
+              <p className="text-sm text-gray-500 mb-2">
+                Nike
+              </p>
+
               <h2 className="text-2xl font-semibold">
-                Clean Girl Lip Tint
+                Cool Girl Street Energy
               </h2>
 
-              <p className="text-gray-400 mt-2">
-                Soft glam makeup
+              <p className="text-gray-400 mt-3">
+                Sporty outfits with confident aura.
               </p>
             </div>
 
             <a
-              href="https://afflink.one/s/f0yrJ"
+              href="你的 Nike 聯盟網址"
               target="_blank"
-              className="bg-white text-black px-5 py-3 rounded-2xl font-medium hover:scale-105 transition"
+              rel="noopener noreferrer"
+              className="bg-white text-black px-6 py-3 rounded-2xl font-medium hover:scale-105 transition"
             >
               Shop
             </a>
 
           </div>
 
-          <div className="bg-zinc-900 border border-zinc-800 rounded-3xl p-6 flex items-center justify-between">
+          {/* FILA */}
+
+          <div className="bg-zinc-900 border border-zinc-800 rounded-3xl p-7 flex items-center justify-between hover:border-zinc-600 transition">
 
             <div>
+              <p className="text-sm text-gray-500 mb-2">
+                FILA
+              </p>
+
               <h2 className="text-2xl font-semibold">
-                Dark Feminine Handbag
+                Korean Casual Aesthetic
               </h2>
 
-              <p className="text-gray-400 mt-2">
-                Rich girl energy
+              <p className="text-gray-400 mt-3">
+                Soft sporty looks inspired by Korean fashion.
               </p>
             </div>
 
             <a
-              href="https://onelink.one/s/WPX5s"
+              href="你的 FILA 聯盟網址"
               target="_blank"
-              className="bg-white text-black px-5 py-3 rounded-2xl font-medium hover:scale-105 transition"
+              rel="noopener noreferrer"
+              className="bg-white text-black px-6 py-3 rounded-2xl font-medium hover:scale-105 transition"
             >
               Shop
             </a>
