@@ -216,12 +216,19 @@ export default function Home() {
 
               </div>
 
-              <button
-                onClick={() => window.print()}
+              
+                <button
+  onClick={() => {
+    alert("Take a screenshot and share your aura ✨");
+  }}
+  className="w-full mt-8 bg-white text-black py-3 rounded-2xl font-semibold hover:scale-105 transition"
+>
+  Share Result
+</button>
                 className="w-full mt-8 bg-white text-black py-3 rounded-2xl font-semibold hover:scale-105 transition"
-              >
+              
                 Download Result
-              </button>
+              
 
               <div className="mt-10">
                 <h3 className="text-xl font-semibold mb-4">
