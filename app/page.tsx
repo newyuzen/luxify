@@ -8,9 +8,11 @@ export default function Home() {
   const [result, setResult] = useState(false);
 
   const [score, setScore] = useState(92);
-  const [type, setType] = useState("Cold Korean Luxury");
+  const [type, setType] = useState("Luxury Muse");
 
-  const handleUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleUpload = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
     const file = e.target.files?.[0];
 
     if (file) {
@@ -25,17 +27,20 @@ export default function Home() {
     setTimeout(() => {
       setLoading(false);
 
-      const scores = [78, 82, 87, 91, 96];
-      const randomScore =
-        scores[Math.floor(Math.random() * scores.length)];
+      const scores = [82, 86, 89, 93, 96, 98];
 
       const types = [
-        "Cold Korean Luxury",
+        "Cold Beauty",
+        "Luxury Muse",
+        "Main Character Energy",
+        "Soft Glam Aura",
+        "Editorial Face",
         "Dark Feminine",
-        "Soft Rich Girl",
-        "Main Character",
-        "Model Energy",
+        "Rich Girl Energy",
       ];
+
+      const randomScore =
+        scores[Math.floor(Math.random() * scores.length)];
 
       const randomType =
         types[Math.floor(Math.random() * types.length)];
@@ -44,96 +49,87 @@ export default function Home() {
       setType(randomType);
 
       setResult(true);
-    }, 2500);
+    }, 2000);
   };
 
   return (
     <main className="min-h-screen bg-black text-white flex items-center justify-center px-6">
-      <div className="max-w-3xl text-center">
+      <div className="w-full max-w-sm">
 
-        <p className="text-sm tracking-[0.3em] text-gray-400 mb-6">
+        <h1 className="text-center text-4xl font-bold mb-2 tracking-tight">
           LUXIFY AI
-        </p>
-
-        <h1 className="text-5xl md:text-7xl font-semibold leading-tight mb-6">
-          看看你的氛圍看起來是否昂貴
         </h1>
 
-        <p className="text-gray-400 text-lg mb-10 max-w-xl mx-auto">
-          AI 會分析你的氣場、能量輪廓和主角潛力。
+        <p className="text-center text-gray-400 mb-10 text-sm">
+          Discover your luxury aura
         </p>
 
-        <label className="bg-white text-black px-6 py-3 rounded-full font-medium hover:scale-105 transition cursor-pointer inline-block">
-          上傳照片
-          <input
-            type="file"
-            accept="image/*"
-            onChange={handleUpload}
-            className="hidden"
-          />
-        </label>
+        <div className="bg-zinc-900 border border-zinc-800 rounded-3xl p-6 shadow-2xl">
 
-        {image && (
-          <div className="mt-10 flex flex-col items-center">
+          <div className="flex flex-col items-center">
 
-            <img
-              src={image}
-              alt="preview"
-              className="w-64 h-64 object-cover rounded-3xl border border-white/10 mb-6"
-            />
+            {image ? (
+              <img
+                src={image}
+                alt="preview"
+                className="w-40 h-40 object-cover rounded-2xl mb-5"
+              />
+            ) : (
+              <label className="w-40 h-40 rounded-2xl bg-zinc-800 flex items-center justify-center text-gray-500 cursor-pointer mb-5">
+                Upload
+                <input
+                  type="file"
+                  accept="image/*"
+                  className="hidden"
+                  onChange={handleUpload}
+                />
+              </label>
+            )}
 
-            <button
-              onClick={analyzePhoto}
-              className="border border-white/20 px-6 py-3 rounded-full hover:bg-white/10 transition"
-            >
-              Analyze Aura
-            </button>
-
+            {image && (
+              <button
+                onClick={analyzePhoto}
+                className="bg-white text-black px-6 py-3 rounded-full font-medium hover:scale-105 transition"
+              >
+                {loading ? "Analyzing..." : "Analyze Energy"}
+              </button>
+            )}
           </div>
-        )}
 
-        {loading && (
-          <p className="mt-8 text-gray-400 animate-pulse">
-            Analyzing luxury aura...
-          </p>
-        )}
+          {result && (
+            <div className="mt-8 border-t border-zinc-800 pt-6">
 
-        {result && (
-          <div className="mt-10 bg-gradient-to-b from-white/10 to-white/5 border border-white/10 rounded-[32px] p-8 text-left max-w-md mx-auto backdrop-blur-xl shadow-2xl">
+              <div className="flex justify-between items-center mb-6">
+                <div>
+                  <p className="text-xs text-gray-500 tracking-widest">
+                    LUXIFY ANALYSIS
+                  </p>
 
-            <div className="flex items-center justify-between mb-6">
-              <div>
-                <p className="text-sm text-gray-400">
-                  LUXIFY ANALYSIS
-                </p>
+                  <h2 className="text-2xl font-bold mt-1">
+                    Elite Aura Analysis
+                  </h2>
+                </div>
 
-                <h2 className="text-2xl font-semibold mt-1">
-                  Luxury Aura Result
-                </h2>
+                <div className="text-3xl">
+                  ✨
+                </div>
               </div>
 
-              <div className="text-4xl">
-                ✨
-              </div>
-            </div>
-
-            <div className="space-y-5">
-
-              <div>
-                <p className="text-gray-500 text-sm mb-1">
+              <div className="mb-8">
+                <p className="text-gray-400 text-sm mb-1">
                   Aura Score
                 </p>
 
-                <h3 className="text-4xl font-bold">
+                <h1 className="text-6xl font-bold">
                   {score}%
-                </h3>
+                </h1>
               </div>
 
-              <div className="border-t border-white/10 pt-5 space-y-4">
+              <div className="space-y-4 text-sm">
 
                 <div className="flex justify-between">
                   <span className="text-gray-400">
-                    Visual Type
+                    Visual Identity
                   </span>
 
                   <span>
@@ -143,44 +139,44 @@ export default function Home() {
 
                 <div className="flex justify-between">
                   <span className="text-gray-400">
-                    Energy
+                    Presence
                   </span>
 
                   <span>
-                    Mysterious
+                    Mysterious & Magnetic
                   </span>
                 </div>
 
                 <div className="flex justify-between">
                   <span className="text-gray-400">
-                    Main Character
+                    Main Character Energy
                   </span>
 
                   <span>
-                    9.4 / 10
+                    9.6 / 10
                   </span>
                 </div>
 
                 <div className="flex justify-between">
                   <span className="text-gray-400">
-                    Social Potential
+                    Social Influence
                   </span>
 
                   <span>
-                    Very High
+                    Exceptionally High
                   </span>
                 </div>
 
               </div>
 
-              <button className="w-full mt-6 bg-white text-black py-3 rounded-2xl font-medium hover:scale-[1.02] transition">
+              <button className="w-full mt-8 bg-white text-black py-3 rounded-2xl font-semibold hover:scale-[1.02] transition">
                 Download Result
               </button>
 
             </div>
-          </div>
-        )}
+          )}
 
+        </div>
       </div>
     </main>
   );
