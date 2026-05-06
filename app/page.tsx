@@ -273,7 +273,7 @@ export default function Home() {
                     </div>
 
                     <a
-                      href="https://www.stylevana.com"
+                      href="https://linkgo.one/s/jq1Mf"
                       target="_blank"
                       className="bg-white text-black px-4 py-2 rounded-xl text-sm font-medium hover:scale-105 transition"
                     >
