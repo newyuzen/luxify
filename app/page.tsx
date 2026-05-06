@@ -3,245 +3,243 @@
 import { useState } from "react";
 
 export default function Home() {
-  const [image, setImage] = useState<string | null>(null);
-  const [loading, setLoading] = useState(false);
+
+  const [image, setImage] = useState("");
+
   const [result, setResult] = useState(false);
 
-  const [score, setScore] = useState(92);
-  const [type, setType] = useState("Luxury Muse");
-  const [bio, setBio] = useState("");
+  const [style, setStyle] = useState("");
+
   const [vibe, setVibe] = useState("");
 
-  const handleUpload = (
-    e: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    const file = e.target.files?.[0];
+  const [brands, setBrands] = useState<any[]>([]);
 
-    if (file) {
-      setImage(URL.createObjectURL(file));
-      setResult(false);
+  const analyzeFace = () => {
+
+    const random = Math.floor(Math.random() * 4);
+
+    if (random === 0) {
+
+      setStyle("Sporty Clean Girl");
+
+      setVibe("pilates princess energy");
+
+      setBrands([
+        {
+          brand: "NIKE",
+          image: "/brands/nike.jpg",
+          link: "https://onelink.one/s/AtDaY",
+        },
+
+        {
+          brand: "FILA",
+          image: "/brands/fila.jpg",
+          link: "https://onelink.one/s/RQ7gW",
+        },
+
+        {
+          brand: "lululemon",
+          image: "/brands/lululemon.jpg",
+          link: "https://afflink.one/s/QGH6s",
+        },
+      ]);
+
     }
-  };
 
-  const analyzePhoto = () => {
-    setLoading(true);
+    else if (random === 1) {
 
-    setTimeout(() => {
-      setLoading(false);
+      setStyle("Quiet Luxury");
 
-      const scores = [82, 86, 89, 93, 96, 98];
+      setVibe("soft rich girl aesthetic");
 
-      const types = [
-        "Cold Luxury",
-        "Soft Glam",
-        "Dark Feminine",
-        "Main Character",
-        "Editorial Face",
-        "Rich Girl Energy",
-      ];
+      setBrands([
+        {
+          brand: "Calvin Klein",
+          image: "/brands/ck.jpg",
+          link: "https://linkgo.one/s/sRTCW",
+        },
 
-      const bios = [
-        "too rare to explain",
-        "emotionally expensive",
-        "soft but dangerous",
-        "pretty enough to disappear",
-        "offline is better",
-        "not made for everyone",
-      ];
+        {
+          brand: "ALLSAINTS",
+          image: "/brands/allsaints.jpg",
+          link: "https://linkgo.one/s/b513D",
+        },
 
-      const vibes = [
-        "mirror selfies at night",
-        "dark luxury aesthetic",
-        "low exposure lifestyle",
-        "editorial fashion energy",
-        "mysterious main character",
-      ];
+        {
+          brand: "Club21",
+          image: "/brands/club21.jpg",
+          link: "https://linkgo.one/s/pwyOv",
+        },
+      ]);
 
-      const randomScore =
-        scores[Math.floor(Math.random() * scores.length)];
+    }
 
-      const randomType =
-        types[Math.floor(Math.random() * types.length)];
+    else if (random === 2) {
 
-      const randomBio =
-        bios[Math.floor(Math.random() * bios.length)];
+      setStyle("Dark Feminine");
 
-      const randomVibe =
-        vibes[Math.floor(Math.random() * vibes.length)];
+      setVibe("mysterious hot girl energy");
 
-      setScore(randomScore);
-      setType(randomType);
-      setBio(randomBio);
-      setVibe(randomVibe);
+      setBrands([
+        {
+          brand: "Jaded London",
+          image: "/brands/jaded.jpg",
+          link: "https://afflink.one/s/4Epn5",
+        },
 
-      setResult(true);
-    }, 2000);
+        {
+          brand: "CHARLES & KEITH",
+          image: "/brands/charles.jpg",
+          link: "https://linkgo.one/s/rSHNC",
+        },
+
+        {
+          brand: "Check2Check",
+          image: "/brands/check2check.jpg",
+          link: "https://linkgo.one/s/a4JKZ",
+        },
+      ]);
+
+    }
+
+    else {
+
+      setStyle("Pinterest Trend Girl");
+
+      setVibe("clean influencer aesthetic");
+
+      setBrands([
+        {
+          brand: "FASBEE",
+          image: "/brands/fasbee.jpg",
+          link: "https://linkgo.one/s/mAYZw",
+        },
+
+        {
+          brand: "Goelia",
+          image: "/brands/goelia.jpg",
+          link: "https://onelink.one/s/SQgev",
+        },
+
+        {
+          brand: "Shopbop",
+          image: "/brands/shopbop.jpg",
+          link: "https://afflink.one/s/DN6vD",
+        },
+      ]);
+
+    }
+
+    setResult(true);
+
   };
 
   return (
-    <main className="min-h-screen bg-black text-white flex items-center justify-center px-6 py-16">
-      <div className="w-full max-w-md">
 
-        <h1 className="text-center text-5xl font-bold mb-3 tracking-tight">
-          LUXIFY AI
-        </h1>
+    <main className="min-h-screen bg-black text-white px-6 py-12">
 
-        <p className="text-center text-gray-400 mb-10">
-          Discover your beauty aura & aesthetic identity
-        </p>
+      <div className="max-w-6xl mx-auto">
 
-        <div className="bg-zinc-900 border border-zinc-800 rounded-3xl p-6 shadow-2xl">
+        <div className="mb-14">
 
-          <div className="flex flex-col items-center">
+          <h1 className="text-7xl font-bold mb-4">
+            LUXIFY AI
+          </h1>
 
-            {image ? (
-              <img
-                src={image}
-                alt="preview"
-                className="w-44 h-44 object-cover rounded-3xl mb-6"
-              />
-            ) : (
-              <label className="w-44 h-44 rounded-3xl bg-zinc-800 flex items-center justify-center text-gray-500 cursor-pointer mb-6 hover:bg-zinc-700 transition">
-                Upload Photo
-                <input
-                  type="file"
-                  accept="image/*"
-                  className="hidden"
-                  onChange={handleUpload}
-                />
-              </label>
-            )}
-
-            {image && (
-              <button
-                onClick={analyzePhoto}
-                className="bg-white text-black px-6 py-3 rounded-full font-medium hover:scale-105 transition"
-              >
-                {loading ? "Analyzing..." : "Analyze Energy"}
-              </button>
-            )}
-          </div>
-
-          {result && (
-            <div className="mt-10 border-t border-zinc-800 pt-8">
-
-              <div className="flex justify-between items-center mb-8">
-                <div>
-                  <p className="text-xs text-gray-500 tracking-widest">
-                    LUXIFY ANALYSIS
-                  </p>
-
-                  <h2 className="text-3xl font-bold mt-2">
-                    Elite Aura Analysis
-                  </h2>
-                </div>
-
-                <div className="text-4xl">
-                  ✨
-                </div>
-              </div>
-
-              <div className="mb-8">
-                <p className="text-gray-400 text-sm mb-2">
-                  Aura Score
-                </p>
-
-                <h1 className="text-7xl font-bold">
-                  {score}%
-                </h1>
-              </div>
-
-              <div className="space-y-5 text-sm">
-
-                <div className="flex justify-between">
-                  <span className="text-gray-400">
-                    Visual Identity
-                  </span>
-
-                  <span className="text-right">
-                    {type}
-                  </span>
-                </div>
-
-                <div className="flex justify-between">
-                  <span className="text-gray-400">
-                    Presence
-                  </span>
-
-                  <span className="text-right">
-                    Mysterious & Magnetic
-                  </span>
-                </div>
-
-                <div className="flex justify-between">
-                  <span className="text-gray-400">
-                    Main Character Energy
-                  </span>
-
-                  <span>
-                    9.6 / 10
-                  </span>
-                </div>
-
-                <div className="flex justify-between">
-                  <span className="text-gray-400">
-                    Social Influence
-                  </span>
-
-                  <span>
-                    Exceptionally High
-                  </span>
-                </div>
-
-                <div className="flex justify-between">
-                  <span className="text-gray-400">
-                    Best IG Bio
-                  </span>
-
-                  <span className="text-right max-w-[180px]">
-                    {bio}
-                  </span>
-                </div>
-
-                <div className="flex justify-between">
-                  <span className="text-gray-400">
-                    Best Aesthetic
-                  </span>
-
-                  <span className="text-right max-w-[180px]">
-                    {vibe}
-                  </span>
-                </div>
-
-              </div>
-
-              <button
-                onClick={() => {
-                  if (navigator.share) {
-                    navigator.share({
-                      title: "LUXIFY AI",
-                      text: "Check out my aura result ✨",
-                      url: window.location.href,
-                    });
-                  }
-                }}
-                className="w-full mt-8 bg-white text-black py-3 rounded-2xl font-semibold hover:scale-105 transition"
-              >
-                Share Result
-              </button>
-
-              <a
-                href="/shop"
-                className="block w-full mt-4 bg-zinc-800 text-white py-3 rounded-2xl font-semibold text-center hover:scale-105 transition"
-              >
-                View Your Aesthetic
-              </a>
-
-            </div>
-          )}
+          <p className="text-zinc-400 text-lg">
+            AI beauty & aesthetic analysis
+          </p>
 
         </div>
+
+        <div className="bg-zinc-900 rounded-3xl p-6 mb-10">
+
+          <input
+            type="text"
+            placeholder="Paste image URL..."
+            value={image}
+            onChange={(e) => setImage(e.target.value)}
+            className="w-full bg-black border border-zinc-800 rounded-2xl px-5 py-4 outline-none"
+          />
+
+          <button
+            onClick={analyzeFace}
+            className="mt-5 bg-white text-black px-6 py-3 rounded-full font-semibold"
+          >
+            Analyze My Face ✨
+          </button>
+
+        </div>
+
+        {result && (
+
+          <>
+
+            <div className="bg-zinc-900 rounded-3xl p-8 mb-10">
+
+              <p className="text-zinc-500 mb-2">
+                AI DETECTED STYLE
+              </p>
+
+              <h2 className="text-5xl font-bold mb-4">
+                {style}
+              </h2>
+
+              <p className="text-zinc-300 text-lg">
+                {vibe}
+              </p>
+
+            </div>
+
+            <h2 className="text-3xl font-bold mb-6">
+              Recommended Brands
+            </h2>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+              {brands.map((item, index) => (
+
+                <div
+                  key={index}
+                  className="bg-zinc-900 rounded-3xl overflow-hidden"
+                >
+
+                  <img
+                    src={item.image}
+                    alt={item.brand}
+                    className="w-full h-72 object-cover"
+                  />
+
+                  <div className="p-5">
+
+                    <h3 className="text-2xl font-bold">
+                      {item.brand}
+                    </h3>
+
+                    <a
+                      href={item.link}
+                      target="_blank"
+                      className="inline-block mt-5 bg-white text-black px-5 py-2 rounded-full"
+                    >
+                      Shop Now
+                    </a>
+
+                  </div>
+
+                </div>
+
+              ))}
+
+            </div>
+
+          </>
+
+        )}
+
       </div>
+
     </main>
+
   );
+
 }
