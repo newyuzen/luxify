@@ -3,11 +3,24 @@ export async function POST() {
     result: {
       aesthetic: "clean girl",
       brands: [
-        "Jaded London",
-        "Charles & Keith",
-        "Check2Check",
-        "Nike",
-        "Fila"
+        {
+          name: "Jaded London",
+          vibe: "edgy cool girl",
+          image: "/brands/jaded.jpg",
+          link: "https://jadedldn.com",
+        },
+        {
+          name: "Charles & Keith",
+          vibe: "luxury feminine",
+          image: "/brands/charles.jpg",
+          link: "https://www.charleskeith.com",
+        },
+        {
+          name: "Check2Check",
+          vibe: "korean street",
+          image: "/brands/check2check.jpg",
+          link: "https://check2check.com",
+        },
       ],
     },
   });
