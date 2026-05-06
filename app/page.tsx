@@ -172,6 +172,75 @@ export default function Home() {
               <button className="w-full mt-8 bg-white text-black py-3 rounded-2xl font-semibold hover:scale-[1.02] transition">
                 Download Result
               </button>
+              <div className="mt-10">
+  <h3 className="text-xl font-semibold mb-4">
+    Recommended For Your Aura
+  </h3>
+
+  <div className="space-y-4">
+
+    <div className="bg-zinc-800 rounded-2xl p-4 flex items-center justify-between">
+      <div>
+        <p className="font-medium">
+          Silver Minimal Necklace
+        </p>
+
+        <p className="text-sm text-gray-400">
+          Cold luxury aesthetic
+        </p>
+      </div>
+
+      <a
+        href="https://amazon.com"
+        target="_blank"
+        className="bg-white text-black px-4 py-2 rounded-xl text-sm font-medium"
+      >
+        Shop
+      </a>
+    </div>
+
+    <div className="bg-zinc-800 rounded-2xl p-4 flex items-center justify-between">
+      <div>
+        <p className="font-medium">
+          Clean Girl Lip Tint
+        </p>
+
+        <p className="text-sm text-gray-400">
+          Soft glam makeup
+        </p>
+      </div>
+
+      <a
+        href="https://yesstyle.com"
+        target="_blank"
+        className="bg-white text-black px-4 py-2 rounded-xl text-sm font-medium"
+      >
+        Shop
+      </a>
+    </div>
+
+    <div className="bg-zinc-800 rounded-2xl p-4 flex items-center justify-between">
+      <div>
+        <p className="font-medium">
+          White Musk Perfume
+        </p>
+
+        <p className="text-sm text-gray-400">
+          Mysterious feminine vibe
+        </p>
+      </div>
+
+      <a
+        href="https://stylevana.com"
+        target="_blank"
+        className="bg-white text-black px-4 py-2 rounded-xl text-sm font-medium"
+      >
+        Shop
+      </a>
+    </div>
+
+  </div>
+</div>
 
             </div>
           )}
