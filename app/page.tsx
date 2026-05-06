@@ -219,7 +219,16 @@ export default function Home() {
               
                 <button
   onClick={() => {
-    alert("Take a screenshot and share your aura ✨");
+    if (navigator.share) {
+      navigator.share({
+        title: "LUXIFY AI",
+        text: "Check out my aura result ✨",
+        url: window.location.href,
+      });
+    } else {
+      alert("Sharing not supported");
+    }
+  
   }}
   className="w-full mt-8 bg-white text-black py-3 rounded-2xl font-semibold hover:scale-105 transition"
 >
