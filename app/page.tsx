@@ -1,245 +1,127 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 export default function Home() {
+  const [imageUrl, setImageUrl] = useState("");
+  const [result, setResult] = useState<any>(null);
+  const [loading, setLoading] = useState(false);
 
-  const [image, setImage] = useState("");
+  const analyzeFace = async () => {
+    if (!imageUrl) return;
 
-  const [result, setResult] = useState(false);
+    setLoading(true);
 
-  const [style, setStyle] = useState("");
+    try {
+      const res = await fetch("/api/analyze", {
+        method: "POST",
+      });
 
-  const [vibe, setVibe] = useState("");
+      const data = await res.json();
 
-  const [brands, setBrands] = useState<any[]>([]);
-
-  const analyzeFace = () => {
-
-    const random = Math.floor(Math.random() * 4);
-
-    if (random === 0) {
-
-      setStyle("Sporty Clean Girl");
-
-      setVibe("pilates princess energy");
-
-      setBrands([
-        {
-          brand: "NIKE",
-          image: "/brands/nike.jpg",
-          link: "https://onelink.one/s/AtDaY",
-        },
-
-        {
-          brand: "FILA",
-          image: "/brands/fila.jpg",
-          link: "https://onelink.one/s/RQ7gW",
-        },
-
-        {
-          brand: "lululemon",
-          image: "/brands/lululemon.jpg",
-          link: "https://afflink.one/s/QGH6s",
-        },
-      ]);
-
+      setResult(data.result);
+    } catch (error) {
+      console.log(error);
     }
 
-    else if (random === 1) {
-
-      setStyle("Quiet Luxury");
-
-      setVibe("soft rich girl aesthetic");
-
-      setBrands([
-        {
-          brand: "Calvin Klein",
-          image: "/brands/ck.jpg",
-          link: "https://linkgo.one/s/sRTCW",
-        },
-
-        {
-          brand: "ALLSAINTS",
-          image: "/brands/allsaints.jpg",
-          link: "https://linkgo.one/s/b513D",
-        },
-
-        {
-          brand: "Club21",
-          image: "/brands/club21.jpg",
-          link: "https://linkgo.one/s/pwyOv",
-        },
-      ]);
-
-    }
-
-    else if (random === 2) {
-
-      setStyle("Dark Feminine");
-
-      setVibe("mysterious hot girl energy");
-
-      setBrands([
-        {
-          brand: "Jaded London",
-          image: "/brands/jaded.jpg",
-          link: "https://afflink.one/s/4Epn5",
-        },
-
-        {
-          brand: "CHARLES & KEITH",
-          image: "/brands/charles.jpg",
-          link: "https://linkgo.one/s/rSHNC",
-        },
-
-        {
-          brand: "Check2Check",
-          image: "/brands/check2check.jpg",
-          link: "https://linkgo.one/s/a4JKZ",
-        },
-      ]);
-
-    }
-
-    else {
-
-      setStyle("Pinterest Trend Girl");
-
-      setVibe("clean influencer aesthetic");
-
-      setBrands([
-        {
-          brand: "FASBEE",
-          image: "/brands/fasbee.jpg",
-          link: "https://linkgo.one/s/mAYZw",
-        },
-
-        {
-          brand: "Goelia",
-          image: "/brands/goelia.jpg",
-          link: "https://onelink.one/s/SQgev",
-        },
-
-        {
-          brand: "Shopbop",
-          image: "/brands/shopbop.jpg",
-          link: "https://afflink.one/s/DN6vD",
-        },
-      ]);
-
-    }
-
-    setResult(true);
-
+    setLoading(false);
   };
 
   return (
+    <main className="min-h-screen bg-black text-white px-6 py-10">
+      <div className="max-w-5xl mx-auto">
+        <h1 className="text-6xl font-bold mb-3">LUXIFY AI</h1>
 
-    <main className="min-h-screen bg-black text-white px-6 py-12">
+        <p className="text-zinc-400 mb-10">
+          AI Aesthetic Analysis Platform
+        </p>
 
-      <div className="max-w-6xl mx-auto">
-
-        <div className="mb-14">
-
-          <h1 className="text-7xl font-bold mb-4">
-            LUXIFY AI
-          </h1>
-
-          <p className="text-zinc-400 text-lg">
-            AI beauty & aesthetic analysis
-          </p>
-
-        </div>
-
-        <div className="bg-zinc-900 rounded-3xl p-6 mb-10">
-
+        <div className="bg-zinc-900 border border-zinc-800 rounded-3xl p-6 mb-12">
           <input
             type="text"
             placeholder="Paste image URL..."
-            value={image}
-            onChange={(e) => setImage(e.target.value)}
-            className="w-full bg-black border border-zinc-800 rounded-2xl px-5 py-4 outline-none"
+            value={imageUrl}
+            onChange={(e) => setImageUrl(e.target.value)}
+            className="w-full bg-black border border-zinc-700 rounded-2xl px-5 py-4 mb-5 outline-none"
           />
 
           <button
             onClick={analyzeFace}
-            className="mt-5 bg-white text-black px-6 py-3 rounded-full font-semibold"
+            className="bg-white text-black px-6 py-3 rounded-full font-semibold hover:opacity-80 transition"
           >
-            Analyze My Face ✨
+            {loading ? "Analyzing..." : "Analyze My Face ✨"}
           </button>
-
         </div>
 
         {result && (
-
           <>
-
-            <div className="bg-zinc-900 rounded-3xl p-8 mb-10">
-
-              <p className="text-zinc-500 mb-2">
-                AI DETECTED STYLE
-              </p>
-
-              <h2 className="text-5xl font-bold mb-4">
-                {style}
+            <div className="mb-12">
+              <h2 className="text-3xl font-bold mb-3">
+                Analysis Result
               </h2>
 
-              <p className="text-zinc-300 text-lg">
-                {vibe}
-              </p>
+              <div className="bg-zinc-900 border border-zinc-800 rounded-3xl p-8">
+                <p className="text-zinc-400 mb-3">
+                  AI detected your aesthetic:
+                </p>
 
+                <h3 className="text-5xl font-bold capitalize">
+                  {result.aesthetic}
+                </h3>
+              </div>
             </div>
 
-            <h2 className="text-3xl font-bold mb-6">
-              Recommended Brands
-            </h2>
+            <div>
+              <div className="flex items-center justify-between mb-6">
+                <h2 className="text-3xl font-bold">
+                  Recommended Brands
+                </h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-              {brands.map((item, index) => (
-
-                <div
-                  key={index}
-                  className="bg-zinc-900 rounded-3xl overflow-hidden"
+                <Link
+                  href="/shop/all"
+                  className="text-zinc-400 hover:text-white transition"
                 >
+                  View More →
+                </Link>
+              </div>
 
-                  <img
-                    src={item.image}
-                    alt={item.brand}
-                    className="w-full h-72 object-cover"
-                  />
+              <div className="grid md:grid-cols-2 gap-6">
+                {result.brands.map((brand: any, index: number) => (
+                  <div
+                    key={index}
+                    className="bg-zinc-900 border border-zinc-800 rounded-3xl overflow-hidden hover:scale-[1.02] transition"
+                  >
+                    <img
+                      src={brand.image}
+                      alt={brand.name}
+                      className="w-full h-[280px] object-cover"
+                    />
 
-                  <div className="p-5">
+                    <div className="p-5">
+                      <h3 className="text-2xl font-bold mb-2">
+                        {brand.name}
+                      </h3>
 
-                    <h3 className="text-2xl font-bold">
-                      {item.brand}
-                    </h3>
+                      <p className="text-zinc-400 mb-5">
+                        {brand.vibe}
+                      </p>
 
-                    <a
-                      href={item.link}
-                      target="_blank"
-                      className="inline-block mt-5 bg-white text-black px-5 py-2 rounded-full"
-                    >
-                      Shop Now
-                    </a>
-
+                      <a
+                        href={brand.link}
+                        target="_blank"
+                        className="inline-block bg-white text-black px-5 py-2 rounded-full font-medium"
+                      >
+                        Shop Now
+                      </a>
+                    </div>
                   </div>
-
-                </div>
-
-              ))}
-
+                ))}
+              </div>
             </div>
-
           </>
-
         )}
-
       </div>
-
     </main>
-
   );
-
 }
