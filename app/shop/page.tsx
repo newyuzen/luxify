@@ -46,7 +46,7 @@ export default function ShopPage() {
             </div>
 
             <a
-              href="你的 CHARLES & KEITH 聯盟網址"
+              href="https://linkgo.one/s/rSHNC"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-white text-black px-6 py-3 rounded-2xl font-medium hover:scale-105 transition"
@@ -75,7 +75,7 @@ export default function ShopPage() {
             </div>
 
             <a
-              href="你的 Calvin Klein 聯盟網址"
+              href="https://linkgo.one/s/sRTCW"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-white text-black px-6 py-3 rounded-2xl font-medium hover:scale-105 transition"
@@ -104,7 +104,7 @@ export default function ShopPage() {
             </div>
 
             <a
-              href="你的 Nike 聯盟網址"
+              href="https://onelink.one/s/AtDaY"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-white text-black px-6 py-3 rounded-2xl font-medium hover:scale-105 transition"
@@ -133,7 +133,7 @@ export default function ShopPage() {
             </div>
 
             <a
-              href="你的 FILA 聯盟網址"
+              href="https://onelink.one/s/RQ7gW"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-white text-black px-6 py-3 rounded-2xl font-medium hover:scale-105 transition"
