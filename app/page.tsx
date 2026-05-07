@@ -54,7 +54,7 @@ const brands = [
 
   {
     name: "Shopbop",
-    link: "https://afflink.one/s/DN6vD",
+    link: "https://onelink.one/s/mgIwm",
   },
 
   {
