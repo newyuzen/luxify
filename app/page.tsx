@@ -157,13 +157,29 @@ setBrand("");
   return (
     <main className="min-h-screen bg-[#fff4f6] text-black px-6 py-10">
       <div className="max-w-5xl mx-auto">
-        <h1 className="text-6xl font-bold tracking-tight mb-3">
-          LUXIFY AI
-        </h1>
+        <div className="flex items-center gap-4 mb-10">
 
-        <p className="text-zinc-600 text-lg mb-10">
-          Discover Your Aesthetic Identity
-        </p>
+  <div className="w-16 h-16 rounded-[22px] bg-gradient-to-br from-pink-200 to-pink-300 flex items-center justify-center shadow-lg">
+
+    <div className="text-3xl font-black text-black">
+      L
+    </div>
+
+  </div>
+
+  <div>
+
+    <h1 className="text-5xl font-black tracking-tight">
+      LUXIFY AI
+    </h1>
+
+    <p className="text-zinc-500 text-lg mt-1">
+      Discover Your Aesthetic Identity
+    </p>
+
+  </div>
+
+</div>
 
         <div className="bg-white rounded-[40px] p-8 shadow-sm border border-pink-100">
           <div className="flex flex-col items-center">
