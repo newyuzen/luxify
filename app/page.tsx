@@ -36,40 +36,67 @@ const analysisTexts = [
 ];
 
 const brands = [
-  {
-    name: "CELINE",
-    link: "https://www.celine.com",
-  },
 
   {
-    name: "CHANEL",
-    link: "https://www.chanel.com",
-  },
-
-  {
-    name: "DIOR",
-    link: "https://www.dior.com",
-  },
-
-  {
-    name: "PRADA",
-    link: "https://www.prada.com",
-  },
-
-  {
-    name: "MIU MIU",
-    link: "https://www.miumiu.com",
-  },
-
-  {
-    name: "LOEWE",
-    link: "https://www.loewe.com",
+    name: "Jaded London",
+    link: "https://afflink.one/s/4Epn5",
   },
 
   {
     name: "CHARLES & KEITH",
-    link: "https://www.charleskeith.com",
+    link: "https://linkgo.one/s/rSHNC",
   },
+
+  {
+    name: "FASBEE",
+    link: "https://linkgo.one/s/mAYZw",
+  },
+
+  {
+    name: "Shopbop",
+    link: "https://afflink.one/s/DN6vD",
+  },
+
+  {
+    name: "Club21",
+    link: "https://linkgo.one/s/pwyOv",
+  },
+
+  {
+    name: "Goelia",
+    link: "https://onelink.one/s/SQgev",
+  },
+
+  {
+    name: "ALLSAINTS",
+    link: "https://linkgo.one/s/b513D",
+  },
+
+  {
+    name: "WISKII",
+    link: "https://onelink.one/s/Im7nr",
+  },
+
+  {
+    name: "LePARMENTIER",
+    link: "https://afflink.one/s/6ulxI",
+  },
+
+  {
+    name: "lululemon",
+    link: "https://afflink.one/s/QGH6s",
+  },
+
+  {
+    name: "Check2Check",
+    link: "https://linkgo.one/s/a4JKZ",
+  },
+
+  {
+    name: "NIKE",
+    link: "https://onelink.one/s/AtDaY",
+  },
+
 ];
 
 export default function Home() {
@@ -159,13 +186,15 @@ setBrand("");
       <div className="max-w-5xl mx-auto">
         <div className="flex items-center gap-4 mb-10">
 
-  <div className="w-16 h-16 rounded-[22px] bg-gradient-to-br from-pink-200 to-pink-300 flex items-center justify-center shadow-lg">
+  <img
+  src="/logo.png.png"
+  alt="Luxify Logo"
+  className="w-20 h-20 object-contain"
+/>
 
-    <div className="text-3xl font-black text-black">
-      L
-    </div>
 
-  </div>
+
+  
 
   <div>
 
